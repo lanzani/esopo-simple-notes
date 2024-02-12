@@ -4,7 +4,7 @@ import { DeleteNoteButton, NewNoteButton } from '@/components'
 export const ActionButtonsRow = ({ ...props }: ComponentProps<'div'>) => {
   return (
     <div {...props}>
-      <NewNoteButton />
+      <NewNoteButton className="mr-2" />
       <DeleteNoteButton />
     </div>
   )

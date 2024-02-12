@@ -21,3 +21,5 @@ export const selectedNoteAtom = atom((get) => {
     content: `Hello from Note${selectedNoteIndex}`
   }
 })
+
+export const createEmptyNoteAtom = atom()
