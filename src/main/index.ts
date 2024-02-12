@@ -16,9 +16,12 @@ function createWindow(): void {
     frame: true,
     vibrancy: 'under-window',
     backgroundMaterial: 'acrylic',
-    // visualEffectState: 'active',
-    // titleBarStyle: 'hidden',
-    // trafficLightPosition: { x: 15, y: 10 },
+    visualEffectState: 'active',
+    titleBarStyle: 'hidden',
+    titleBarOverlay: {
+      color: 'rgba(116,177,190,0)',
+      symbolColor: '#d4d4d8'
+    },
     icon: iconICO,
     ...(process.platform === 'linux' ? { iconPNG } : {}),
     webPreferences: {

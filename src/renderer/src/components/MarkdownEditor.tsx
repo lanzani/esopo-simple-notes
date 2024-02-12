@@ -7,11 +7,24 @@ import {
   quotePlugin,
   thematicBreakPlugin
 } from '@mdxeditor/editor'
+import { useMarkdownEditor } from '../hooks/useMarkdownEditor'
+import iconPNG from '@/assets/icon.png'
 
 export const MarkdownEditor = () => {
+  const { selectedNote } = useMarkdownEditor()
+
+  if (!selectedNote) {
+    return (
+      <div className="flex h-screen">
+        <img className="h-48 w-48 m-auto" src={iconPNG}></img>
+      </div>
+    )
+  }
+
   return (
     <MDXEditor
-      markdown={'# Hello from Esopo Simple Notes'}
+      key={selectedNote.title}
+      markdown={selectedNote.content}
       plugins={[
         headingsPlugin(),
         listsPlugin(),
