@@ -5,6 +5,8 @@ import iconPNG from '../../resources/icon.png?asset'
 import iconICO from '../../resources/icon.ico?asset'
 import { getNotes } from '@/lib'
 import { GetNotes } from '@shared/types'
+import { readNote } from './lib'
+import { ReadNote } from '../shared/types'
 
 function createWindow(): void {
   // Create the browser window.
@@ -69,6 +71,7 @@ app.whenReady().then(() => {
   ipcMain.on('ping', () => console.log('pong'))
 
   ipcMain.handle('getNotes', (_, ...args: Parameters<GetNotes>) => getNotes(...args))
+  ipcMain.handle('readNote', (_, ...args: Parameters<ReadNote>) => readNote(...args))
 
   createWindow()
 
