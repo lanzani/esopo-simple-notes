@@ -15,9 +15,15 @@ export const MarkdownEditor = () => {
 
   if (!selectedNote) {
     return (
-      <div className="flex h-screen">
-        <img className="h-48 w-48 m-auto" src={iconPNG}></img>
-      </div>
+      <>
+        <div className="flex h-screen">
+          <div className="m-auto">
+            <img className="h-48 w-48 m-auto" src={iconPNG}></img>
+            <br></br>
+            <p className="m-auto">A great story can start with a simple note...</p>
+          </div>
+        </div>
+      </>
     )
   }
 
