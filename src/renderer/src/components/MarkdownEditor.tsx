@@ -8,7 +8,7 @@ import {
   thematicBreakPlugin
 } from '@mdxeditor/editor'
 import { useMarkdownEditor } from '../hooks/useMarkdownEditor'
-import iconPNG from '@/assets/icon.png'
+import iconPNG from '@/assets/full_icon.png'
 
 export const MarkdownEditor = () => {
   const { selectedNote } = useMarkdownEditor()
@@ -18,7 +18,7 @@ export const MarkdownEditor = () => {
       <>
         <div className="flex h-screen">
           <div className="m-auto">
-            <img className="h-48 w-48 m-auto" src={iconPNG}></img>
+            <img className="h-60 w-60 m-auto" src={iconPNG}></img>
             <br></br>
             <p className="m-auto">A great story starts with a simple note...</p>
           </div>

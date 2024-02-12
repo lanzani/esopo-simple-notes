@@ -35,6 +35,8 @@ $ yarn build:mac
 $ yarn build:linux
 ```
 
+Interface over a .md folder.
 
-Features
+Todo
 - [ ] Git autosync
+- [ ] Choose directory / Change directory
