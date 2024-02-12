@@ -11,7 +11,7 @@ import { useMarkdownEditor } from '../hooks/useMarkdownEditor'
 import iconPNG from '@/assets/full_icon.png'
 
 export const MarkdownEditor = () => {
-  const { selectedNote } = useMarkdownEditor()
+  const { editorRef, selectedNote, handleAutoSaving, handleBlur } = useMarkdownEditor()
 
   if (!selectedNote) {
     return (
@@ -20,7 +20,7 @@ export const MarkdownEditor = () => {
           <div className="m-auto">
             <img className="h-60 w-60 m-auto" src={iconPNG}></img>
             <br></br>
-            <p className="m-auto">A great story starts with a simple note...</p>
+            <p className="m-auto">Great stories starts with a simple note...</p>
           </div>
         </div>
       </>
@@ -29,8 +29,11 @@ export const MarkdownEditor = () => {
 
   return (
     <MDXEditor
+      ref={editorRef}
       key={selectedNote.title}
       markdown={selectedNote.content}
+      onChange={handleAutoSaving}
+      onBlur={handleBlur}
       plugins={[
         headingsPlugin(),
         listsPlugin(),
