@@ -20,7 +20,7 @@ export const MarkdownEditor = () => {
           <div className="m-auto">
             <img className="h-48 w-48 m-auto" src={iconPNG}></img>
             <br></br>
-            <p className="m-auto">A great story can start with a simple note...</p>
+            <p className="m-auto">A great story starts with a simple note...</p>
           </div>
         </div>
       </>
