@@ -38,5 +38,6 @@ $ yarn build:linux
 Interface over a .md folder.
 
 Todo
+- [ ] Colors and font
 - [ ] Git autosync
 - [ ] Choose directory / Change directory

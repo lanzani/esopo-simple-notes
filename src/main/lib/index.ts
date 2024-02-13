@@ -3,11 +3,12 @@ import { appDirectoryName } from '@shared/constants'
 import { ensureDir, readdir, readFile, stat, writeFile } from 'fs-extra'
 import { fileEncoding } from '@shared/constants'
 import { NoteInfo } from '@shared/models'
-import { GetNotes, ReadNote } from '@shared/types'
-import { WriteNote } from '../../shared/types'
+import { GetNotes, ReadNote, WriteNote, CreateNote } from '@shared/types'
+import { dialog } from 'electron'
+import path from 'path'
 
 export const getRootDir = () => {
-  return `${homedir()}/${appDirectoryName}`
+  return `${homedir()}\\${appDirectoryName}`
 }
 
 export const getNotes: GetNotes = async () => {
@@ -42,4 +43,42 @@ export const writeNote: WriteNote = async (filename, content) => {
   const rootDir = getRootDir()
   console.log(`Saving note ${filename} to ${rootDir}`)
   return writeFile(`${rootDir}/${filename}.md`, content, { encoding: fileEncoding })
+}
+
+export const createNote: CreateNote = async () => {
+  const rootDir = getRootDir()
+
+  const notes = await getNotes()
+
+  await ensureDir(rootDir)
+  const { filePath, canceled } = await dialog.showSaveDialog({
+    title: 'New note',
+    defaultPath: `${rootDir}\\note${notes.length + 1}.md`,
+    buttonLabel: 'Create',
+    properties: ['showOverwriteConfirmation'],
+    showsTagField: false,
+    filters: [{ name: 'Markdown', extensions: ['md'] }]
+  })
+
+  if (canceled || !filePath) {
+    console.log('Note creation canceled')
+    return false
+  }
+
+  const { name: filename, dir: parentDir } = path.parse(filePath)
+
+  if (parentDir !== rootDir) {
+    await dialog.showMessageBox({
+      type: 'error',
+      title: 'Creation failed',
+      message: `All notes must be saved under ${rootDir}.`
+    })
+
+    return false
+  }
+
+  console.log(`Creating note ${filePath}`)
+  await writeFile(filePath, '')
+
+  return filename
 }
