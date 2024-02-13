@@ -1,12 +1,33 @@
+![cover.png](imgs/cover.png)
 
-![cover.png](cover.png)
 # Esopo Simple Notes
 
-An Electron application with React and TypeScript
+Simple markdown editor made with Electron, React and TypeScript.
 
-## Recommended IDE Setup
+It's an interface over a folder of markdown, following the principle of [file over
+app](https://stephango.com/file-over-app).
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+Features:
+
+- [x] Markdown reader/writer
+- [x] Autosave
+- [ ] Saving on close
+- [ ] Change colors and font to appear more "classy"
+- [ ] Git autosync
+- [ ] Choose directory / Change directory
+
+![app.png](imgs/img.png)
+
+## Why the name "_Esopo_"?
+
+I had a book of [Esopo](https://en.wikipedia.org/wiki/Aesop) on my desk when I created this GitHub repo.
+
+This app was my attempt to create a minimalistic markdown note app for windows. Also, I was curious to build something
+with Electron.
+
+Huge credits to [Gionatha](https://www.youtube.com/watch?v=t8ane4BDyC8).
+
+:)
 
 ## Project Setup
 
@@ -35,10 +56,3 @@ $ yarn build:mac
 $ yarn build:linux
 ```
 
-Interface over a .md folder.
-
-Todo
-- [ ] Saving on close
-- [ ] Colors and font
-- [ ] Git autosync
-- [ ] Choose directory / Change directory
