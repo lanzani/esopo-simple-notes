@@ -4,7 +4,7 @@
 
 Simple markdown editor made with Electron, React and TypeScript.
 
-It's an interface over a folder of markdown, following the principle of [file over
+It's an interface over a folder of markdown files, following the principle of [file over
 app](https://stephango.com/file-over-app).
 
 Features:
